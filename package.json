@@ -1,34 +1,57 @@
 {
   "name": "@wise/sandbox-transfer-apl",
   "version": "1.0.0",
-  "description": "Sandbox environment for Wise Transfer API Learning platform",
+  "description": "Sandbox environment for Wise Transfer API Learning platform with Todo App",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node src/index.ts",
+    "dev": "ts-node src/main.ts",
     "test": "jest",
-    "lint": "eslint src/**/*.ts"
+    "lint": "eslint src/**/*.ts",
+    "start": "node dist/main.js"
   },
   "keywords": [
     "wise",
     "transfer",
     "api",
-    "sandbox"
+    "sandbox",
+    "todo",
+    "local-storage"
   ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^18.0.0",
-    "typescript": "^5.0.0",
-    "ts-node": "^10.0.0",
-    "jest": "^29.0.0",
-    "@types/jest": "^29.0.0",
-    "eslint": "^8.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0"
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.40.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
   },
   "dependencies": {
     "axios": "^1.4.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom",
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.ts",
+      "**/?(*.)+(spec|test).ts"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
