@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  wise-transfer-demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: wise-transfer-demo
+    environment:
+      - WISE_API_KEY=${WISE_API_KEY}
+      - WISE_API_BASE_URL=${WISE_API_BASE_URL:-https://api.sandbox.transferwise.tech}
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+      - ./dist:/app/dist
+    restart: unless-stopped
+    networks:
+      - wise-network
+
+networks:
+  wise-network:
+    driver: bridge
